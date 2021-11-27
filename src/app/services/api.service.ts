@@ -32,7 +32,7 @@ export class ApiService {
       'Something bad happened; please try again later.');
   };
 
-  createItem(item): Observable<Student> {
+  createItem(item: Student): Observable<Student> {
     return this.http
       .post<Student>(this.base_path, JSON.stringify(item), this.httpOptions)
       .pipe(
@@ -41,7 +41,7 @@ export class ApiService {
       )
   }
 
-  getItem(id): Observable<Student> {
+  getItem(id: string | number): Observable<Student> {
     return this.http
       .get<Student>(this.base_path + '/' + id)
       .pipe(
@@ -59,7 +59,7 @@ export class ApiService {
       )
   }
 
-  updateItem(id, item): Observable<Student> {
+  updateItem(id: string | number, item: Student): Observable<Student> {
     return this.http
       .put<Student>(this.base_path + '/' + id, JSON.stringify(item), this.httpOptions)
       .pipe(
@@ -68,7 +68,7 @@ export class ApiService {
       )
   }
 
-  deleteItem(id) {
+  deleteItem(id: string) {
     return this.http
       .delete<Student>(this.base_path + '/' + id, this.httpOptions)
       .pipe(
